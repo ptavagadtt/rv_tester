@@ -12,17 +12,38 @@ axi::a_no_id_t make_ar(uint64_t addr, size_t length) {
   axi::a_no_id_t ar(false, addr, 0);
   // Mirror axi_sw_mst::a_wrapper burst sizing for power-of-two lengths.
   switch (length) {
-    case 1: ar.size = 0; ar.len = 0; break;
-    case 2: ar.size = 1; ar.len = 0; break;
-    case 4: ar.size = 2; ar.len = 0; break;
-    case 8: ar.size = 3; ar.len = 0; break;
-    case 16: ar.size = 4; ar.len = 0; break;
-    case 32: ar.size = 5; ar.len = 0; break;
-    case 64: ar.size = 6; ar.len = 0; break;
-    default:
-      ar.len = length - 1;
-      ar.size = 0;
-      break;
+  case 1:
+    ar.size = 0;
+    ar.len = 0;
+    break;
+  case 2:
+    ar.size = 1;
+    ar.len = 0;
+    break;
+  case 4:
+    ar.size = 2;
+    ar.len = 0;
+    break;
+  case 8:
+    ar.size = 3;
+    ar.len = 0;
+    break;
+  case 16:
+    ar.size = 4;
+    ar.len = 0;
+    break;
+  case 32:
+    ar.size = 5;
+    ar.len = 0;
+    break;
+  case 64:
+    ar.size = 6;
+    ar.len = 0;
+    break;
+  default:
+    ar.len = length - 1;
+    ar.size = 0;
+    break;
   }
   return ar;
 }
